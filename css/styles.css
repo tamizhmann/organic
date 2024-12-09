@@ -625,7 +625,7 @@ h1, h2 {
 }
 
 .packet-label {
-    font-size: 12px;            /* Adjust font size */
+    font-size: 13px;            /* Adjust font size */
     font-weight: bold;          /* Make label bold */
     margin-right: 10px;         /* Space between label and dropdown */
     color: #333;                /* Change label color */
@@ -825,23 +825,10 @@ h1, h2 {
     font-size: 18px; /* Font size for total cost */
     font-weight: bold; /* Bold for emphasis */
     color: #333; /* Dark gray color for readability */
-    margin-bottom: 5px; /* Space below the element */
+    margin-bottom: 10px; /* Space below the element */
 }
 
-/* Delivery Charges */
-#delivery-charges {
-    font-size: 16px; /* Slightly smaller font size */
-    color: #555; /* Medium gray for less emphasis */
-    margin-bottom: 5px; /* Space below the element */
-}
 
-/* Total Payable */
-#total-payable {
-    font-size: 20px; /* Larger font size for total payable */
-    font-weight: bold; /* Bold for emphasis */
-    color: #d9534f; /* Bootstrap danger color for emphasis */
-    margin-top: 10px; /* Space above the element */
-}
 
 /* Add a subtle transition effect when hovering */
 .cart-summary h5:hover, 

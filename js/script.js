@@ -56,7 +56,6 @@ function addToCart(productId) {
 function renderCart() {
     const cartItemsContainer = document.getElementById("cart-items");
     const totalCostElement = document.getElementById("total-cost");
-    const deliveryChargesElement = document.getElementById("delivery-charges");
     const totalPayableElement = document.getElementById("total-payable");
     const placeOrderContainer = document.getElementById("place-order-container"); // Get the place order container
 
@@ -101,19 +100,14 @@ function renderCart() {
 
     // Update cost summary only if there are items in the cart
     if (totalCost > 0) {
-        const totalPayable = totalCost + deliveryCharge;
-
-        totalCostElement.innerText = `மொத்த பொருட்கள் விலை: ₹${totalCost.toFixed(2)}`;
-        deliveryChargesElement.innerText = `டெலிவரி கட்டணம்: ₹${deliveryCharge}`;
-        totalPayableElement.innerText = `மொத்த விலை: ₹${totalPayable.toFixed(2)}`;
+        totalCostElement.innerText = `மொத்த விலை: ₹${totalCost.toFixed(2)}`;
 
         // Show the Place Order button
         placeOrderContainer.style.display = 'block';
     } else {
         // Clear the cost summary if the cart is empty and encourage the user to add items
         totalCostElement.innerText = "";
-        deliveryChargesElement.innerText = "";
-        totalPayableElement.innerText = "தயவுசெய்து தேவையான பொருட்களைச் சேர்க்கவும்!";
+        totalCostElement.innerText = "தயவுசெய்து தேவையான பொருட்களைச் சேர்க்கவும்!";
 
         // Hide the Place Order button
         placeOrderContainer.style.display = 'none';
@@ -199,16 +193,17 @@ function placeOrder() {
     });
 
     const totalCost = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
-    const totalPayable = totalCost + deliveryCharge;
 
     message += "--------------------------------------------------\n";
-    message += `டெலிவரி கட்டணம்:\t₹${deliveryCharge}\n`;
-    message += `மொத்த விலை:\t₹${totalPayable.toFixed(2)}\n`;
+    message += `மொத்த விலை:\t₹${totalCost.toFixed(2)}\n`;
+	
+	const whatsappNumber = '9047812407'; // Replace with your WhatsApp number
+    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-    const whatsappURL = `https://wa.me/?text=${encodeURIComponent(message)}`;
-    window.open(whatsappURL, "_blank");
-
+    // Open the WhatsApp link
+    window.open(whatsappLink, '_blank');
 }
+
 
 // JavaScript for handling menu popup
 const menuIcon = document.getElementById('menu-icon');
