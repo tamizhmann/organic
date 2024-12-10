@@ -314,7 +314,6 @@ function decreaseQuantity(productId) {
 }
 
 // Update the Add to Cart button to include the unique ID for each product
-// Update the Add to Cart button to include the unique ID for each product
 function renderProducts() {
     const productList = document.getElementById("product-list");
 
@@ -341,7 +340,7 @@ function renderProducts() {
                     <button class="scroll-button left" id="scroll-left-${category}" onclick="scrollCarousel('${category}', -1)">&#10094;</button>
                     <div class="product-carousel-inner" id="carousel-${category}">
                         ${groupedProducts[category].map(product => `
-                            <div class="product-card">
+                            <div class="product-card" id="product-${product.id}">
                                 <img src="${product.img}" alt="${product.name}">
                                 <h5 class="product-tamil">${product.name}</h5>
                                 <div class="packet-selector">
@@ -360,6 +359,31 @@ function renderProducts() {
                                 </div>
                                 <button class="order-btn" id="order-btn-${product.id}" onclick="addToCart(${product.id})">Add to Cart</button>
                                 <div class="notification" id="notification-${product.id}" style="display: none;">Added to cart!</div>
+                                <!-- Share icon -->
+                                <div class="share-icon" onclick="toggleShareIcons(event, ${product.id})">
+                                    <i class="fas fa-share-alt"></i> <!-- Font Awesome Share Icon -->
+                                </div>
+                                <!-- Social Media Icons -->
+                                <div class="social-share-icons" id="social-share-${product.id}" style="display: none;">
+                                    <a href="#" onclick="shareProduct('${product.name}', '${product.img}', ${product.id}, 'whatsapp')" title="Share on WhatsApp">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </a>
+                                    <a href="#" onclick="shareProduct('${product.name}', '${product.img}', ${product.id}, 'instagram')" title="Share on Instagram">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a href="#" onclick="shareProduct('${product.name}', '${product.img}', ${product.id}, 'facebook')" title="Share on Facebook">
+                                        <i class="fab fa-facebook"></i>
+                                    </a>
+                                    <a href="#" onclick="shareProduct('${product.name}', '${product.img}', ${product.id}, 'telegram')" title="Share on Telegram">
+                                        <i class="fab fa-telegram"></i>
+                                    </a>
+                                    <a href="#" onclick="shareProduct('${product.name}', '${product.img}', ${product.id}, 'gmail')" title="Share via Email">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                    <a href="#" onclick="copyLink('${location.href}')">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                </div>
                             </div>
                         `).join("")}
                     </div>
@@ -374,6 +398,8 @@ function renderProducts() {
         startAutoScroll(category);
     });
 }
+
+
 
 // Function to scroll carousel
 function scrollCarousel(category, direction) {
@@ -495,6 +521,109 @@ function showCartNotification() {
         setTimeout(() => notification.remove(), 500); // Delay for fade-out effect
     }, 3000);
 }
+
+
+function shareProduct(productName, productImage, productId, platform) {
+    const productLink = `https://tamizhmann.github.io/organic/`; // Update with your actual product link
+    const shareMessage = `${productLink}/${productImage} Check out this amazing product: ${productName} - ${productLink}`;
+    
+    // Prepare the sharing URLs
+    let urlToShare = '';
+
+    switch (platform) {
+        case 'whatsapp':
+            urlToShare = `https://wa.me/?text=${encodeURIComponent(shareMessage)}`;
+            break;
+        case 'gmail':
+            urlToShare = `mailto:?subject=Amazing Product&body=${encodeURIComponent(shareMessage)}`;
+            break;
+        case 'facebook':
+            urlToShare = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(productLink)}`;
+            break;
+        case 'telegram':
+            urlToShare = `https://t.me/share/url?url=${encodeURIComponent(productLink)}&text=${encodeURIComponent(productName)}`;
+            break;
+        case 'instagram':
+            alert('Instagram sharing is not direct. Please copy the link to share: ' + productLink);
+            return; // Prevent opening a link for Instagram, as it does not support direct URL sharing.
+    }
+
+    // Open the appropriate share link in a new tab
+    window.open(urlToShare, '_blank');
+}
+
+
+function copyLink(url) {
+    navigator.clipboard.writeText(url).then(() => {
+        alert("Link copied to clipboard!");
+    });
+}
+
+
+function toggleShareIcons(event, productId) {
+    event.stopPropagation(); // Prevent event bubbling
+    const shareIcons = document.getElementById(`social-share-${productId}`);
+
+    // First, hide all other share icons
+    const allShareIcons = document.querySelectorAll('.social-share-icons');
+    allShareIcons.forEach(icon => {
+        if (icon !== shareIcons) {
+            icon.style.display = 'none'; // Hide other icons
+        }
+    });
+
+    // Toggle the display of the share icons
+    if (shareIcons.style.display === "none" || shareIcons.style.display === "") {
+        shareIcons.style.display = "block"; // Show the share icons
+
+        // Automatically hide share icons after 5 seconds
+        const timeout = setTimeout(() => {
+            if (!shareIcons.matches(':hover') && !document.getElementById(`product-${productId}`).matches(':hover')) {
+                shareIcons.style.display = "none"; // Hide the share icons after 5 seconds if not hovered
+            }
+        }, 5000);
+
+        // Clear timeout if mouse enters the share icons
+        shareIcons.addEventListener('mouseenter', () => {
+            clearTimeout(timeout); // Keep icons visible
+        });
+        shareIcons.addEventListener('mouseleave', () => {
+            // Start timer to hide if not hovered after 5 seconds
+            timeout = setTimeout(() => {
+                if (!shareIcons.matches(':hover') && !document.getElementById(`product-${productId}`).matches(':hover')) {
+                    shareIcons.style.display = "none"; // Hide the share icons after 5 seconds if not hovered
+                }
+            }, 1000);
+        });
+    } else {
+        shareIcons.style.display = "none"; // Hide the share icons if already visible
+    }
+}
+
+// Hide share icons if clicked outside
+document.addEventListener("click", function(event) {
+    const shareIconElements = document.querySelectorAll('.social-share-icons');
+    shareIconElements.forEach(icon => {
+        icon.style.display = 'none'; // Hide all icons
+    });
+});
+
+// Show the share icons if mouse is over the icons or product card
+document.querySelectorAll('.product-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        const shareIcons = card.querySelector('.social-share-icons');
+        if (shareIcons.style.display === "block") {
+            shareIcons.style.display = "block"; // Keep it visible
+        }
+    });
+
+    card.addEventListener('mouseleave', () => {
+        const shareIcons = card.querySelector('.social-share-icons');
+        if (!shareIcons.matches(':hover')) {
+            shareIcons.style.display = "none"; // Hide if not hovered
+        }
+    });
+});
 
 
 

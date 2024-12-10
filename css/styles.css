@@ -1002,5 +1002,92 @@ iframe {
     border-radius: 10px; /* Rounded corners for the iframe */
 }
 
+.product-card {
+    position: relative; /* For positioning the share icon */
+    /* Other existing styles */
+	
+}
+
+.product-card:hover .share-icon {
+    display: block; /* Show the share icon when hovering over the product card */
+}
+
+.share-icon {
+    position: absolute;
+    top: 10px; /* Adjust position */
+    right: 10px; /* Adjust position */
+    cursor: pointer;
+    background-color: white; /* Background color */
+    border-radius: 50%; /* Rounded shape */
+    padding: 5px; /* Padding around the icon */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for effect */
+    transition: background-color 0.3s; /* Smooth background color change */
+	display: none; /* Initially hidden */
+
+}
+
+.share-icon i {
+    color: #4CAF50; /* Green color for the share symbol */
+    font-size: 15px; /* Size of the share icon */
+}
+
+
+.share-icon:hover {
+    background-color: #4CAF50; /* Change oval shape to green on hover */
+}
+
+.share-icon:hover i {
+    color: white; /* Change share icon symbol to white on hover */
+}
+
+.social-share-icons {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 30px; /* Adjust position */
+    right: 10px; /* Adjust position */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 6px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    flex-direction: row; /* Stack icons vertically */
+}
+
+.social-share-icons a {
+    text-decoration: none;
+    margin: 5px 0; /* Space between icons */
+}
+
+.social-share-icons i {
+    font-size: 20px; /* Adjust icon size */
+}
+
+/* Specific colors for social media icons */
+.social-share-icons a .fab.fa-whatsapp {
+    color: #25D366; /* WhatsApp color */
+}
+
+.social-share-icons a .fab.fa-facebook {
+    color: #3b5998; /* Facebook color */
+}
+
+.social-share-icons a .fab.fa-telegram {
+    color: #0088cc; /* Telegram color */
+}
+
+.social-share-icons a .fab.fa-instagram {
+    color: #E1306C; /* Instagram color */
+}
+
+.social-share-icons a .fas.fa-envelope {
+    color: #D44638; /* Gmail color */
+}
+
+/* Optional: Add hover effect for icons */
+.social-share-icons a:hover i {
+    transform: scale(1.2); /* Slightly enlarge icon on hover */
+    transition: transform 0.2s ease;
+}
 
 
