@@ -525,7 +525,7 @@ function showCartNotification() {
 
 function shareProduct(productName, productImage, productId, platform) {
     const productLink = `https://tamizhmann.github.io/organic/`; // Update with your actual product link
-    const shareMessage = `${productLink}/${productImage} Check out this amazing product: ${productName} - ${productLink}`;
+    const shareMessage = `Check out this amazing product: ${productName} - ${productLink}`;
     
     // Prepare the sharing URLs
     let urlToShare = '';
