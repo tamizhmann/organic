@@ -7,7 +7,7 @@ let currentVisibleCount = initialVisibleCount;
 
 // Function to calculate price based on size
 function calculatePrice(basePrice, size) {
-    return (basePrice / 1000) * size; // Price per gram, multiplied by size in grams
+    return (basePrice / 1000) * size + packingCharges; // Price per gram, multiplied by size in grams
 }
 
 // Quantity update functions
@@ -189,7 +189,11 @@ function placeOrder() {
     cart.forEach(item => {
         const product = products.find(p => p.id === item.productId);
         const itemTotalPrice = item.price * item.quantity; // Total price for the item
-        message += `${product.name}\t${item.size}g\t${item.quantity}\t₹${item.price.toFixed(2)}\t₹${itemTotalPrice.toFixed(2)}\n`;
+		
+		// Determine the size label based on item size
+        const sizeLabel = item.size === '1000' ? '1 kg' : `${item.size} g`; // Adjust the size label here
+
+        message += `${product.name}\t${sizeLabel}\t${item.quantity} qty\t₹${item.price.toFixed(2)}\t₹${itemTotalPrice.toFixed(2)}\n`;
     });
 
     const totalCost = cart.reduce((total, item) => total + (item.price * item.quantity), 0);

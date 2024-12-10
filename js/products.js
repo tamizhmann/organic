@@ -1,5 +1,10 @@
+// packing Charges
+
+const packingCharges = 40; // Constant packing charge applied to all products
+
+// Product details
 const products = [
-    { id: 1, name: "கம்பு லட்டு", category: "லட்டு வகைகள்", basePrice: 449, img: "images/Laddu/Kambu_laddu.png" },
+    { id: 1, name: "கம்பு லட்டு", category: "லட்டு வகைகள்", basePrice: 400, img: "images/Laddu/Kambu_laddu.png" },
     { id: 2, name: "ராகி லட்டு", category: "லட்டு வகைகள்", basePrice: 459, img: "images/Laddu/Ragi_laddu.png" },
     { id: 3, name: "மில்லட் லட்டு", category: "லட்டு வகைகள்", basePrice: 533, img: "images/Laddu/Millets_mix_laddu.png" },
     { id: 4, name: "சாமை லட்டு", category: "லட்டு வகைகள்", basePrice: 519, img: "images/Laddu/Samai_laddu.png" },
