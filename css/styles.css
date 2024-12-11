@@ -1091,3 +1091,69 @@ iframe {
 }
 
 
+/* Add-to-Cart Pop-Up style inside the product card */
+.add-cart-popup {
+    position: absolute;
+    top: 50%; /* Center vertically in the packet selector */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%) scale(0); /* Start at scale 0 for animation */
+    background-color: rgba(34, 139, 34, 0.9); /* Greenish background */
+    color: #fff;
+    padding: 8px 16px; /* Adjusted padding for better fit */
+    border-radius: 6px;
+    font-size: 11px; /* Reduce font size slightly for better fit */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+    white-space: nowrap; /* Ensure text stays on one line */
+    max-width: calc(100% - 20px); /* Keep it within the card boundaries */
+    overflow: hidden; /* Prevent text overflow outside pop-up */
+}
+
+/* Show the pop-up with animation */
+.add-cart-popup.show {
+    animation: zoomInOut 1.8s ease forwards;
+    opacity: 1;
+}
+
+/* Zoom in and out animation */
+@keyframes zoomInOut {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+    30% {
+        transform: translate(-50%, -50%) scale(1.1); /* Slight zoom for effect */
+        opacity: 1;
+    }
+    60% {
+        transform: translate(-50%, -50%) scale(1); /* Back to normal size */
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Ensure the packet-selector has relative positioning for the pop-up to work */
+.packet-selector {
+    position: relative;
+    overflow: hidden; /* Constrain the pop-up within the product card */
+}
+
+/* Product card containment */
+.product-card {
+    position: relative;
+    overflow: hidden; /* Prevent pop-up from exceeding bounds */
+    padding: 0 10px; /* Ensure space between card edges and pop-up */
+}
+
+
+
+
+
+
+
