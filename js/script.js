@@ -49,8 +49,33 @@ function addToCart(productId) {
     document.getElementById("cart-count").innerText = cart.reduce((total, item) => total + item.quantity, 0);
     
 	showCartNotification(); // Show notification to encourage user to check the cart
+	showAddToCartPopup(productId);
 	
 }
+
+function showAddToCartPopup(productId) {
+    const productCard = document.getElementById(`product-${productId}`);
+    const packetSelector = productCard.querySelector(".packet-selector");
+    const quantity = document.getElementById(`quantity-${productId}`).value;
+
+    let popup = productCard.querySelector(".add-cart-popup");
+    if (!popup) {
+        popup = document.createElement("div");
+        popup.className = "add-cart-popup";
+        packetSelector.appendChild(popup);
+    }
+
+    // Ensure message text is short
+    popup.textContent = `Added ${quantity} item(s)!`;
+
+    popup.classList.add("show");
+
+    // Automatically remove the class after animation
+    setTimeout(() => {
+        popup.classList.remove("show");
+    }, 2000); // Match animation duration
+}
+
 
 // Function to display cart items
 function renderCart() {
