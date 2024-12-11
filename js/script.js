@@ -48,38 +48,9 @@ function addToCart(productId) {
     // Update cart count display
     document.getElementById("cart-count").innerText = cart.reduce((total, item) => total + item.quantity, 0);
     
-	showCartNotification(); // Show notification to encourage user to check the cart    
-    showAddToCartPopup(productId); // Show animated pop-up
+	showCartNotification(); // Show notification to encourage user to check the cart
 	
 }
-
-// Animated pop-up function
-function showAddToCartPopup(productId) {
-    // Get the product card and the corresponding quantity
-    const productCard = document.getElementById(`product-${productId}`);
-    const packetSelector = productCard.querySelector(".packet-selector"); // Target "Select Size" area
-    const quantity = document.getElementById(`quantity-${productId}`).value;
-
-    // Create the pop-up message dynamically if not already present
-    let popup = productCard.querySelector(".add-cart-popup");
-    if (!popup) {
-        popup = document.createElement("div");
-        popup.className = "add-cart-popup";
-        popup.textContent = ""; // Initial empty text
-        packetSelector.appendChild(popup); // Attach the pop-up to the "Select Size" area
-    }
-
-    // Set the pop-up text and show it
-    popup.textContent = `Added ${quantity} item(s) to the cart!`;
-    popup.classList.add("show");
-
-    // Hide the pop-up after a short delay
-    setTimeout(() => {
-        popup.classList.remove("show");
-    }, 2000);
-}
-
-
 
 // Function to display cart items
 function renderCart() {
