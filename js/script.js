@@ -565,9 +565,9 @@ function shareProduct(productName, productImage, productId, platform) {
 		
 "உங்கள் ஆர்டரை பெற்ற பிறகு புதியதாக தயாரிக்கப்படும் என்பதால், சிறந்த தரத்திற்காக 2 நாட்கள் நேரம் வேண்டுமெனத் தெரிவித்துக் கொள்கிறோம்."
 		
-*_Check out this amazing product: ${productName}_* \n
+*_Check out this amazing product: ${productName}_*
 
-*Click here! *${productLink} \n`;
+*Click here!* ${productLink} \n`;
 
     // Initialize the sharing URL
     let urlToShare = '';
