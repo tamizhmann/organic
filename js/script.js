@@ -567,7 +567,7 @@ function shareProduct(productName, productImage, productId, platform) {
 		
 *_Check out this amazing product: ${productName}_* \n
 
-*Click here! :*](${productLink}) \n`;
+*Click here! *${productLink} \n`;
 
     // Initialize the sharing URL
     let urlToShare = '';
