@@ -554,7 +554,7 @@ function showCartNotification() {
 
 function shareProduct(productName, productImage, productId, platform) {
     // Update this with your actual product link logic
-    const productLink = `https://tamizhmann.github.io/organic/?productId=${productId}`;
+    const productLink = `https://tamizhmann.github.io/organic/`;
     
     // Prepare the share message with product details and image link
 	const shareMessage = `*தமிழ் மண்*
