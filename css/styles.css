@@ -1,0 +1,1140 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+header {
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+	padding-top: 80px; /* Adjust this value based on the height of your navbar */
+    align-items: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Text shadow for better readability */
+    color: white;
+	z-index: 900; /* Lower than the navbar *
+}
+
+h1, h2 {
+    font-weight: bold;
+    animation: fadeIn 1s ease-in-out; /* Animation for headers */
+}
+
+/* Main Content */
+.page-section {
+    margin-top: 50px; /* Add space equal to the height of the fixed nav bar */
+}
+
+/* cart items */
+.cart-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 15px;
+    background-color: #fff;
+}
+
+.cart-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.remove-btn {
+    margin-left: 10px;
+    color: red;
+    cursor: pointer;
+}
+
+.cart-item:last-child {
+    border-bottom: none; /* Remove border for last item */
+}
+
+.cart-header {
+    background-color: #e9ecef; /* Light background for cart header */
+    padding: 10px;
+    font-weight: bold;
+}
+
+
+/* Additional styles can go here */
+.navbar-brand img {
+    height: 40px; /* Adjust logo size */
+}
+.product-tamil {
+    font-family: 'Noto Sans Tamil', sans-serif; /* Use a Tamil font */
+    font-size: 0.9rem;
+    font-weight: bold; /* Bold product name */
+    color: #2e7d32; /* Darker green for text to enhance visibility */
+    margin: 10px 0; /* Vertical spacing */
+}
+
+/* Additional styles for organic theme */
+.navbar {
+    position: fixed;
+    top: 0;
+    z-index: 1000; /* Ensure navbar is above other elements */
+    background-color: #f8f9fa; /* Light background for navbar */
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #f8f9fa;
+    color: white;
+    padding: 1rem 0;
+    position: fixed; /* Keeps the nav bar fixed at the top */
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-link {
+    color: #28a745; /* Green color for nav links */
+}
+
+.nav-link:hover {
+    color: #218838; /* Darker green on hover */
+}
+
+#view-cart {
+    color: #28a745; /* Green color for cart icon */
+    margin-left: 15px; /* Add some margin for spacing */
+}
+
+#view-cart:hover {
+    color: #218838; /* Darker green on hover */
+}
+
+.navbar-toggler {
+    border-color: #28a745; /* Green border for the hamburger menu */
+}
+
+/* Ensuring the toggler button fits well */
+.navbar-toggler i {
+    font-size: 24px; /* Adjust icon size if necessary */
+}
+
+#cart-display {
+    display: none; /* Initially hide cart display */
+    position: absolute;
+    top: 60px; /* Position below navbar */
+    right: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Set a width for the cart */
+    max-height: 400px;
+    overflow-y: auto; /* Allow scrolling */
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+
+/* 1. Style for Popup Menu */
+.menu-popup {
+    display: none; /* Hidden by default */
+    position: absolute; /* Position it absolutely relative to the navbar */
+    top: 60px; /* Adjust based on navbar height */
+    right: 10px; /* Align to the right */
+    background-color: #ffffff; /* White background */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    z-index: 1050; /* Above other elements */
+    padding: 15px; /* Padding around content */
+	overflow: hidden; /* Prevent content overflow */
+}
+
+.menu-popup ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.menu-popup li {
+    margin: 10px 0; /* Space between items */
+}
+
+.menu-popup a {
+    text-decoration: none;
+    color: #333; /* Dark text color */
+    transition: color 0.3s;
+}
+
+.menu-popup a:hover {
+    color: #007bff; /* Change color on hover */
+}
+
+/* Arrow for Popup Menu */
+.menu-popup::before {
+    content: '';
+    position: absolute;
+    top: -10px; /* Position above the popup */
+    right: 20px; /* Position to point towards the menu icon */
+    border-width: 10px; /* Size of the arrow */
+    border-style: solid;
+    border-color: transparent transparent #ffffff transparent; /* White arrow */
+}
+
+/* Ensure icons are adjacent */
+.icon-container {
+    display: flex;
+    align-items: center;
+}
+
+.icon-container .btn {
+    margin-left: 10px; /* Space between icons */
+}
+
+/* Scroll to Top Button Styles */
+#scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 10px;
+    width: 40px; /* Outer circle size */
+    height: 40px; /* Outer circle size */
+    border-radius: 50%;
+    background: conic-gradient(#4caf50 0%, #fff 0%); /* Progress with white background */
+    border: 1px solid #4caf50; /* Outer circle border thickness and color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    opacity: 0; /* Hidden by default */
+    pointer-events: none; /* Disabled by default */
+    z-index: 1000; /* Ensure the button is above other content */
+}
+
+#scroll-to-top.visible {
+    opacity: 1;
+    pointer-events: auto; /* Enable pointer events when visible */
+}
+
+#scroll-to-top .inner-circle {
+    width: 32px; /* Inner circle size */
+    height: 32px; /* Inner circle size */
+    background: white; /* Inner circle background */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* For arrow positioning */
+}
+
+#scroll-to-top .up-arrow {
+    font-size: 20px; /* Arrow size */
+    font-weight: bold; /* Ensures the arrow is bold and clear */
+    color: #4caf50; /* Matches the green organic theme */
+    text-shadow: 
+        0px 0px 2px rgba(0, 0, 0, 0.3), /* Subtle shadow for depth */
+        0px 0px 3px rgba(76, 175, 80, 0.6); /* Green glowing effect */
+    transition: transform 0.2s ease, text-shadow 0.2s ease; /* Adds smooth hover or active effects */
+}
+
+#scroll-to-top .up-arrow:hover {
+    transform: translateY(-2px) scale(1.1); /* Grows slightly when hovered */
+    text-shadow: 
+        0px 4px 8px rgba(0, 0, 0, 0.4), /* More pronounced shadow */
+        0px 0px 12px rgba(76, 175, 80, 0.8); /* Brighter green glow */
+}
+
+.footer {
+    display: flex;            /* Use flexbox for alignment */
+    align-items: center;     /* Center items vertically */
+    justify-content: center;  /* Center items horizontally */
+    height: 50px;           /* Set a fixed height for the footer */
+}
+
+.footer-text {
+    font-size: 0.9rem;       /* Adjust the font size as needed */
+    margin: 0;               /* Remove default margin */
+}
+
+
+/* Category container styling */
+.category-container {
+    margin: 20px 0;
+}
+
+.category-title {
+    font-family: 'Noto Sans Tamil', sans-serif; /* Use a Tamil font */
+    font-size: 1.1rem;
+    color: #d9534f; /* Decorative color for Tamil text */
+	font-weight: bold;
+}
+
+/* Horizontal scroll for the product carousel */
+.product-carousel {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow-x: auto; /* Allow horizontal scrolling */
+    padding: 10px; /* Padding for carousel */
+    scroll-snap-type: x mandatory; /* Snap effect */
+
+}
+
+.product-carousel-inner {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px;
+    white-space: nowrap; /* Prevent wrapping */
+    scrollbar-width: thin; /* For Firefox */
+}
+
+.product-carousel-inner::-webkit-scrollbar {
+    height: 8px; /* Height of the scrollbar */
+}
+
+.product-carousel-inner::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+}
+
+.product-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* Product cards */
+.product-card {
+    flex: 0 0 200px; /* Fixed width for product cards */
+    margin-right: 10px; /* Spacing between cards */
+    border: 1px solid #ddd; /* Card border */
+    border-radius: 5px; /* Rounded corners */
+    transition: transform 0.3s; /* Smooth hover effect */
+    scroll-snap-align: start; /* Align the start of the card with the start of the scroll */
+    background-color: white; /* Background color for cards */
+    text-align: center; /* Center text in cards */
+	padding: 10px;
+}
+
+.product-card img {
+    width: 100%; /* Full width */
+    height: 190px; /* Fixed height for images */
+    object-fit: cover; /* Cover to maintain aspect ratio */
+}
+
+.product-card h3 {
+    font-size: 1.2rem; /* Heading size */
+    margin: 10px 0 5px; /* Margin for heading */
+}
+
+.product-card p {
+    margin: 5px 0; /* Margin for price */
+}
+
+.product-card:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+.product-price {
+    color: #d32f2f; /* Dark red for price to stand out */
+    font-size: 0.8rem; /* Slightly larger font size */
+    margin: 5px 0; /* Spacing around price */
+	font-weight: bold; /* Bold product name */
+}
+
+.order-btn {
+    background-color: #4caf50; /* Green background for order button */
+    color: white;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth background change */
+    width: 100%; /* Full width button */
+}
+
+.order-btn:hover {
+    background-color: #388e3c; /* Darker green on hover */
+}
+
+.quantity-selector {
+    display: flex;
+    justify-content: center; /* Center the quantity selector */
+    align-items: center; /* Center vertically */
+    margin: 10px 0; /* Vertical spacing */
+}
+
+.quantity-selector input {
+    width: 40px; /* Fixed width for input */
+    text-align: center; /* Center text */
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 4px; /* Slight rounding */
+}
+
+.quantity-selector button {
+    padding: 4px 5px; /* Padding for buttons */
+    margin: 0 5px; /* Horizontal spacing */
+    cursor: pointer; /* Pointer cursor on hover */
+	background-color: green; /* Change button color */
+	color: white; /* Button text color */
+	display: flex; /* Center icon inside the button */
+}
+
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    .product-card {
+        flex: 0 0 150px; /* Smaller cards for mobile */
+    }
+}
+
+/* Cart Modal Styles */
+.cart-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.cart-modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: slide-down 0.3s ease;
+}
+
+.cart-summary {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cart-modal-footer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.close-btn {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+@keyframes slide-down {
+    from {
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* General Cart Item Styles */
+.cart-item {
+    margin-bottom: 15px; /* Space between cart items */
+    padding: 10px;
+    border: 1px solid #ddd; /* Border around each cart item */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background color */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: row; /* Default to row layout */
+    flex-wrap: nowrap; /* Prevent wrapping */
+}
+
+/* Product Image Styling */
+.product-image {
+    flex-shrink: 0; /* Prevent image from shrinking */
+    margin-right: 15px; /* Space between image and details */
+}
+
+.product-image img {
+    width: 80px; /* Fixed width for the image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Rounded corners for image */
+}
+
+/* Product Details */
+.product-details {
+    flex-grow: 1; /* Allow product details to grow and fill space */
+    display: flex;
+    flex-direction: column; /* Stack name, price, and controls vertically */
+}
+
+/* Product Info Section */
+.product-info {
+    display: flex; /* Flexbox for name, price, and total alignment */
+    justify-content: space-between; /* Space between name+price and total */
+    align-items: center; /* Center align vertically */
+}
+
+/* Product Name and Price Styling */
+.product-name-price {
+    display: flex; /* Flexbox for name and price alignment */
+    flex-direction: column; /* Stack name and price vertically */
+}
+
+.product-name {
+    font-size: 16px; /* Font size for product name */
+    font-weight: bold; /* Bold font for product name */
+    margin: 0; /* Remove default margin */
+}
+
+/* Total Price Styling */
+.product-total {
+    font-size: 14px; /* Font size for total price */
+    font-weight: bold; /* Bold font for total price */
+    color: #d9534f; /* Color for total price */
+}
+
+/* Quantity Controls */
+.quantity-controls {
+    display: flex; /* Use flexbox for quantity controls */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space out buttons and input */
+    width: 100%; /* Use full width of the container */
+    margin-top: 10px; /* Add some margin above */
+}
+
+/* Styling for Quantity Buttons */
+.quantity-btn {
+    background-color: green; /* Change button color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    width: 30px; /* Fixed width for buttons */
+    height: 30px; /* Fixed height for buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 18px; /* Font size for buttons */
+    display: flex; /* Center icon inside the button */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Input Field for Quantity */
+.quantity-input {
+    width: 100px; /* Set a fixed width for the input */
+    text-align: center; /* Center the text */
+    border: 1px solid #ccc; /* Border for the input */
+    border-radius: 5px; /* Rounded corners */
+    margin: 0 -150px; /* Space between buttons and input */
+    font-size: 16px; /* Font size for input */
+}
+
+/* Space between buttons */
+.quantity-controls > button {
+    margin: 0 2px; /* Add space between the buttons */
+}
+
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .cart-item {
+        flex-direction: column; /* Stack items vertically on mobile */
+        align-items: flex-start; /* Align items to the left */
+        padding: 10px; /* Add padding to the cart item */
+    }
+
+    .product-image {
+        margin-bottom: 10px; /* Space below image when stacked */
+    }
+
+    .product-details {
+        width: 100%; /* Ensure details use full width */
+    }
+
+    /* Quantity Controls */
+    .quantity-controls {
+        display: flex; /* Use flexbox for quantity controls */
+        align-items: center; /* Center items vertically */
+        justify-content: space-between; /* Space out buttons and input */
+        width: 100%; /* Use full width of the container */
+        margin-top: 10px; /* Add some margin above */
+    }
+
+    /* Styling for Quantity Buttons */
+    .quantity-btn {
+        background-color: green; /* Change button color */
+        color: white; /* Button text color */
+        border: none; /* Remove border */
+        border-radius: 5px; /* Rounded corners */
+        width: 30px; /* Fixed width for buttons */
+        height: 30px; /* Fixed height for buttons */
+        cursor: pointer; /* Pointer cursor on hover */
+        font-size: 18px; /* Font size for buttons */
+        display: flex; /* Center icon inside the button */
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Input Field for Quantity */
+    .quantity-input {
+        width: 40px; /* Set a fixed width for the input */
+        text-align: center; /* Center the text */
+        border: 1px solid #ccc; /* Border for the input */
+        border-radius: 5px; /* Rounded corners */
+        margin: 0 5px; /* Space between buttons and input */
+        font-size: 16px; /* Font size for input */
+    }
+
+    /* Remove Item Button */
+    .remove-item {
+        color: black; /* Color for remove item */
+        font-size: 14px; /* Font size for remove item */
+        cursor: pointer; /* Pointer cursor for hover */
+        display: flex; /* Flexbox for icon and text alignment */
+        align-items: center; /* Center icon and text */
+        margin-top: 10px; /* Space above the remove button */
+		margin-left: 50px; /* Space from quantity controls */
+        width: 100%; /* Full width */
+        justify-content: flex-start; /* Align remove button to the left */
+    }
+
+    .remove-item i {
+        margin-right: 5px; /* Space between icon and text */
+    }
+	
+	/* Product Name and Price Styling */
+	.product-name-price {
+    display: flex; /* Flexbox for name and price alignment */
+    flex-direction: column; /* Stack name and price vertically */
+	}
+}
+
+
+.packet-selector {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+	position: relative;
+    overflow: hidden; /* Constrain the pop-up within the product card */
+}
+
+.packet-label {
+    font-size: 13px;            /* Adjust font size */
+    font-weight: bold;          /* Make label bold */
+    margin-right: 10px;         /* Space between label and dropdown */
+    color: #333;                /* Change label color */
+}
+
+.packet-dropdown {
+    padding: 10px;              /* Add padding for a better click area */
+    border: 2px solid #ddd;     /* Border for dropdown */
+    border-radius: 5px;         /* Rounded corners */
+    font-size: 14px;            /* Adjust font size */
+    color: #555;                /* Dropdown text color */
+    background-color: #f9f9f9;  /* Background color */
+    transition: border-color 0.3s, transform 0.3s; /* Smooth transitions */
+    cursor: pointer;            /* Change cursor to pointer */
+    width: 80px;               /* Set the width of the dropdown */
+    height: 45px;               /* Set the height of the dropdown */
+}
+
+/* Hover and focus effects */
+.packet-dropdown:hover {
+    border-color: #aaa;         /* Change border color on hover */
+    transform: scale(1.05);     /* Slightly enlarge on hover */
+}
+
+.packet-dropdown:focus {
+    border-color: #666;         /* Change border color on focus */
+    outline: none;              /* Remove default outline */
+}
+
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+}
+
+.packet-dropdown.animate {
+    animation: shake 0.5s ease; /* Shake animation */
+}
+
+/* Encourage user selection on focus */
+.packet-dropdown:focus {
+    border-color: #666;         /* Change border color on focus */
+    outline: none;              /* Remove default outline */
+    animation: shake 0.5s ease; /* Shake when focused */
+}
+
+
+
+/* Shake effect when hovering over the packet selector */
+.packet-selector:hover .packet-dropdown {
+    animation: shake 0.5s ease;
+    animation-fill-mode: forwards; /* Keep the final state after animation */
+}
+
+.product-card:hover .packet-selector {
+    animation: shake 0.5s; /* Adjust duration as needed */
+	animation-fill-mode: forwards;
+}
+
+@keyframes zoom {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); } /* Zoom in */
+    100% { transform: scale(1); }  /* Zoom out */
+}
+
+.product-card:hover .product-price {
+    animation: zoom 0.5s; /* Zoom animation */
+}
+
+
+/* Scroll buttons */
+.scroll-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(34, 139, 34, 0.5); /* Green shade */
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* Left and Right Button Positioning */
+.scroll-button.left {
+    left: -7px; /* Adjusted position */
+}
+
+.scroll-button.right {
+    right: -7px; /* Adjusted position */
+}
+
+/* Hover effect */
+.scroll-button:hover {
+    background-color: rgba(34, 139, 34, 0.8); /* Darker green for hover effect */
+}
+
+/* Zoom and fade animation */
+@keyframes zoom-in-out {
+    0% {
+        transform: translateY(-50%) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-50%) scale(1.2); /* Zoom in */
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-50%) scale(1); /* Zoom out */
+        opacity: 1;
+    }
+}
+
+.zoom-fade {
+    animation: zoom-in-out 1s forwards; /* 1 second for zoom effect */
+}
+
+
+/* Styles for Cart Summary */
+.cart-summary {
+    margin-top: 20px; /* Space above the summary section */
+    text-align: left; /* Align text to the left */
+    padding: 10px; /* Padding for inner spacing */
+    border: 1px solid #ddd; /* Light border for separation */
+    border-radius: 8px; /* Rounded corners for the summary box */
+    background-color: #f9f9f9; /* Light background color */
+}
+
+
+/* Cart Notification Styles */
+.cart-notification {
+    position: absolute; /* Position it relative to the cart icon */
+    background-color: #f8f9fa; /* Light background */
+    border: 1px solid green; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px;
+    margin-top: 5px; /* Space above the notification */
+    z-index: 1000; /* Ensure it's above other elements */
+    width: 200px; /* Set a width for the notification */
+    left: 50%; /* Center it */
+    transform: translateX(-50%); /* Adjust for centering */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add some shadow for depth */
+    display: flex; /* Flexbox for content */
+    align-items: center; /* Center items vertically */
+}
+
+/* Arrow Styles */
+.notification-arrow {
+    position: absolute; /* Position relative to the notification */
+    bottom: 100%; /* Place above the notification */
+    left: 50%; /* Center it */
+    transform: translateX(-50%); /* Adjust for centering */
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent; /* Left side of arrow */
+    border-right: 10px solid transparent; /* Right side of arrow */
+    border-bottom: 10px solid green; /* Arrow color */
+}
+
+.notification-content {
+    text-align: center; /* Center the text */
+}
+
+
+/* Fade-out effect */
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-out; /* Smooth fade-out */
+}
+
+/* Small Text Style */
+
+.small-text {
+    font-size: 0.76em; /* Adjust the size as needed */
+    color: #666; /* Optional: Change text color */
+}
+
+
+
+/* Total Cost */
+#total-cost {
+    font-size: 18px; /* Font size for total cost */
+    font-weight: bold; /* Bold for emphasis */
+    color: #333; /* Dark gray color for readability */
+    margin-bottom: 10px; /* Space below the element */
+}
+
+
+
+/* Add a subtle transition effect when hovering */
+.cart-summary h5:hover, 
+.cart-summary h4:hover {
+    color: #007bff; /* Change color on hover */
+    transition: color 0.3s; /* Smooth transition for color change */
+}
+
+
+/* Title styles */
+.hero-title {
+    font-size: 1.8rem; /* Larger font for the title */
+    font-weight: bold; /* Bold weight for emphasis */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Shadow effect for depth */
+}
+
+/* Subtitle styles */
+.hero-subtitle {
+    font-size: 0.8rem; /* Slightly smaller than title */
+    font-weight: normal; /* Regular weight for subtitle */
+    margin-top: 10px; /* Space above subtitle */
+    color: #f8f9fa; /* Light color for contrast */
+}
+
+/* Description styles */
+.hero-description {
+    font-size: 0.9rem; /* Medium size for description */
+    margin-top: 20px; /* Space above description */
+    color: #f0f0f0; /* Light gray for readability */
+	font-weight: bold; /* Bold weight for emphasis */
+}
+
+/* Secondary text styles */
+.hero-secondary {
+    font-size: 0.9rem; /* Smaller size for secondary info */
+    margin-top: 5px; /* Space above secondary text */
+    font-style: italic; /* Italic for style */
+	font-weight: bold; /* Bold weight for emphasis */
+}
+
+.small-text {
+    font-size: 0.76em; /* Adjust the size as needed */
+    color: #666; /* Optional: Change text color */
+}
+
+
+/* Responsive styles for the button */
+@media (max-width: 576px) {
+    #whatsapp-button {
+        font-size: 14px; /* Smaller font size on mobile */
+        padding: 8px 10px; /* Reduced padding */
+        width: calc(100% - 30px); /* Full width minus the margins */
+        box-sizing: border-box; /* Ensures padding is included in total width */
+		gap: 0.25rem; /* Reduce gap between icon and text */
+    }
+}
+
+/* Button hover effect */
+#whatsapp-button:hover {
+	animation: zoom 0.3s ease-in-out; /* Zoom effect on hover */
+    background-color: #ffffff; /* Change background on hover */
+    color: #28a745; /* Change text color on hover */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+/* Animation keyframes */
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1); /* Scale up */
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Button styles */
+
+#whatsapp-button {
+    display: inline-flex; /* Flex layout for better alignment */
+    align-items: center; /* Vertically center-align the text and icon */
+    justify-content: center; /* Center-align the entire button content */
+    animation: zoom 1.5s infinite; /* Smooth zoom effect */
+    margin-top: 10px; /* Space above the button */
+    padding: 0.20rem 0.80rem; /* Add padding for better touch area */
+    text-align: center; /* Ensure text is centered */
+    gap: 0.25rem; /* Space between the icon and text */
+}
+
+/* About us Section Header Styles */
+.text-center {
+    font-size: 1.1rem; /* Font size for "Our Address" header */
+    font-weight: bold; /* Make the address header bold */
+    color: #444; /* Change text color if needed */
+    margin-top: 20px; /* Space above the address header */
+    margin-bottom: 10px; /* Space below the address header */
+}
+
+/* About Section Header Styles */
+.about-header {
+	font-family: 'Noto Sans Tamil', serif; /* Use Tamil font */
+    font-size: 1.25rem; /* Font size for "Contact Us" header */
+    font-weight: bold; /* Make the header bold */
+    color: #333; /* Change text color if needed */
+    margin-bottom: 20px; /* Space below the header */
+}
+
+/* Product Section Header Styles */
+.product-header {
+	font-family: 'Noto Sans Tamil', serif; /* Use Tamil font */
+    font-size: 1.1rem; /* Font size for "Our Address" header */
+    font-weight: bold; /* Make the address header bold */
+    color: #444; /* Change text color if needed */
+    margin-top: 20px; /* Space above the address header */
+    margin-bottom: 10px; /* Space below the address header */
+}
+
+/* Address Text Styles */
+.about-text {
+	font-family: 'Noto Sans Tamil', serif; /* Use Tamil font */
+    font-size: 0.85rem; /* Font size for the address text */
+    color: #555; /* Change text color if needed */
+    margin-bottom: 20px; /* Space below the address text */
+	font-weight: 500; /* Make the about text bold */
+	
+}
+
+
+/* Contact Section Header Styles */
+.contact-header {
+	font-family: 'Noto Sans Tamil', serif; /* Use Tamil font */
+    font-size: 1.25rem; /* Font size for "Contact Us" header */
+    font-weight: bold; /* Make the header bold */
+    color: #333; /* Change text color if needed */
+    margin-bottom: 20px; /* Space below the header */
+}
+
+/* Address Section Header Styles */
+.address-header {
+	font-family: 'Noto Sans Tamil', serif; /* Use Tamil font */
+    font-size: 1.1rem; /* Font size for "Our Address" header */
+    font-weight: bold; /* Make the address header bold */
+    color: #444; /* Change text color if needed */
+    margin-top: 20px; /* Space above the address header */
+    margin-bottom: 10px; /* Space below the address header */
+}
+
+/* Address Text Styles */
+.address-text {
+	font-family: 'Noto Sans Tamil', serif; /* Use Tamil font */
+    font-size: 0.8rem; /* Font size for the address text */
+    color: #555; /* Change text color if needed */
+    margin-bottom: 20px; /* Space below the address text */
+	font-weight: 500; /* Make the address header bold */
+}
+
+/* Google Map Styles */
+
+.google-text {
+	font-family: 'Noto Sans Tamil', serif; /* Use Tamil font */
+    font-size: 0.8rem; /* Font size for "Our Address" header */
+    font-weight: bold; /* Make the address header bold */
+    color: #444; /* Change text color if needed */
+    margin-top: 20px; /* Space above the address header */
+    margin-bottom: 10px; /* Space below the address header */
+	text-align: center; /* Center align the text */
+}
+iframe {
+    border-radius: 10px; /* Rounded corners for the iframe */
+}
+
+.product-card {
+    position: relative; /* For positioning the share icon */
+    /* Other existing styles */
+	
+}
+
+.product-card:hover .share-icon {
+    display: block; /* Show the share icon when hovering over the product card */
+}
+
+.share-icon {
+    position: absolute;
+    top: 10px; /* Adjust position */
+    right: 10px; /* Adjust position */
+    cursor: pointer;
+    background-color: white; /* Background color */
+    border-radius: 50%; /* Rounded shape */
+    padding: 5px; /* Padding around the icon */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for effect */
+    transition: background-color 0.3s; /* Smooth background color change */
+	display: none; /* Initially hidden */
+
+}
+
+.share-icon i {
+    color: #4CAF50; /* Green color for the share symbol */
+    font-size: 15px; /* Size of the share icon */
+}
+
+
+.share-icon:hover {
+    background-color: #4CAF50; /* Change oval shape to green on hover */
+}
+
+.share-icon:hover i {
+    color: white; /* Change share icon symbol to white on hover */
+}
+
+.social-share-icons {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 30px; /* Adjust position */
+    right: 10px; /* Adjust position */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 6px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    flex-direction: row; /* Stack icons vertically */
+}
+
+.social-share-icons a {
+    text-decoration: none;
+    margin: 5px 0; /* Space between icons */
+}
+
+.social-share-icons i {
+    font-size: 20px; /* Adjust icon size */
+}
+
+/* Specific colors for social media icons */
+.social-share-icons a .fab.fa-whatsapp {
+    color: #25D366; /* WhatsApp color */
+}
+
+.social-share-icons a .fab.fa-facebook {
+    color: #3b5998; /* Facebook color */
+}
+
+.social-share-icons a .fab.fa-telegram {
+    color: #0088cc; /* Telegram color */
+}
+
+.social-share-icons a .fab.fa-instagram {
+    color: #E1306C; /* Instagram color */
+}
+
+.social-share-icons a .fas.fa-envelope {
+    color: #D44638; /* Gmail color */
+}
+
+/* Optional: Add hover effect for icons */
+.social-share-icons a:hover i {
+    transform: scale(1.2); /* Slightly enlarge icon on hover */
+    transition: transform 0.2s ease;
+}
+
+/* Add-to-Cart Pop-Up inside the product card */
+.add-cart-popup {
+    position: absolute;
+    top: 50%; /* Center vertically in the packet selector */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%) scale(0); /* Start at scale 0 for animation */
+    background-color: rgba(34, 139, 34, 0.9); /* Greenish background */
+    color: #fff;
+    padding: 8px 16px; /* Adjusted padding for better fit */
+    border-radius: 6px;
+    font-size: 12px; /* Reduce font size slightly for better fit */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+    white-space: nowrap; /* Ensure text stays on one line */
+    max-width: calc(100% - 20px); /* Keep it within the card boundaries */
+    overflow: hidden; /* Prevent text overflow outside pop-up */
+}
+
+/* Show the pop-up with animation */
+.add-cart-popup.show {
+    animation: zoomInOut 1.8s ease forwards;
+    opacity: 1;
+}
+
+/* Zoom in and out animation */
+@keyframes zoomInOut {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+    30% {
+        transform: translate(-50%, -50%) scale(1.1); /* Slight zoom for effect */
+        opacity: 1;
+    }
+    60% {
+        transform: translate(-50%, -50%) scale(1); /* Back to normal size */
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+}
+
+
+
+
+
